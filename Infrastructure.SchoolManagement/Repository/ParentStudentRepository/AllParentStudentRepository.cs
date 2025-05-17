@@ -1,5 +1,6 @@
 ﻿using Domin.SchoolManagement.Entities;
 using Domin.SchoolManagement.IRepository.IParentRepository;
+using Domin.SchoolManagement.IRepository.IParentStudentRepository;
 using Infrastructure.SchoolManagement.Data;
 using Infrastructure.SchoolManagement.Repository.BaseRepository.AllBaseRepository;
 using System;
@@ -10,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.SchoolManagement.Repository.ParentStudentRepository
 {
-    public class AllParentRepository : BaseRepository<Parent>, IAllParentRepository
+    public class AllParentStudentRepository : BaseRepository<ParentStudent>, IAllParentStudentRepository
     {
-        public AllParentRepository(AppDbContext context) : base(context)
+        public AllParentStudentRepository(AppDbContext context) : base(context)
         {
             
         }
