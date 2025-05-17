@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace Domin.SchoolManagement.IRepository.IUnitOfRepository
 {
-    public class IUnitOfRepository
+    public interface IUnitOfRepository
     {
         IAllAttendanceRepository _Attendance { get; }
         IAllClassRepository _Class { get; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.SchoolManagement.Interface.IAttendanceOperation
 {
-    public interface IEditAttendanceOperation : IBaseUpdateAsync<UpdateAttendanceDto>
+    public interface IEditStudentOperation : IBaseUpdateAsync<UpdateStudentDto>
     {
     }
 }

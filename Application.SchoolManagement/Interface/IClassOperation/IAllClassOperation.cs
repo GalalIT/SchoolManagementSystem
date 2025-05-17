@@ -9,7 +9,7 @@ namespace Application.SchoolManagement.Interface.IClassOperation
 {
     public interface IAllClassOperation : IAddClassOperation, IDeleteClassOperation, IEditClassOperation, IGetAllClassOperation, IGetByIdClassOperation
     {
-    {
+    
     }
 }
  
