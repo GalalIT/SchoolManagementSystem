@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Application.SchoolManagement.Interface.IParentOperation
+{
+    public interface IAllParentOperation: IAddParentOperation, IDeleteParentOperation, IEditParentOperation, IGetAllParentOperation, IGetByIdParentOperation
+    {
+    }
+}
+  
