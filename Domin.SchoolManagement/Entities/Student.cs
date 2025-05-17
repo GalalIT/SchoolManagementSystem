@@ -18,6 +18,8 @@ namespace Domin.SchoolManagement.Entities
         [Required(ErrorMessage = "معرف المستخدم مطلوب | User ID is required")]
         [Display(Name = "معرف المستخدم | User ID")]
         public string UserId { get; set; } = string.Empty;
+        [Required(ErrorMessage = "اسم المستخدم مطلوب | User ID is required")] 
+        public string Name { get; set; } 
 
         [Display(Name = "الصف | Class")]
         public int? ClassId { get; set; }
