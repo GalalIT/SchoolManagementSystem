@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.SchoolManagement.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250517180821_first")]
-    partial class first
+    [Migration("20250517221704_firstMig")]
+    partial class firstMig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -351,6 +351,10 @@ namespace Infrastructure.SchoolManagement.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -404,6 +408,10 @@ namespace Infrastructure.SchoolManagement.Migrations
 
                     b.Property<DateTime>("HireDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Specialization")
                         .HasMaxLength(100)

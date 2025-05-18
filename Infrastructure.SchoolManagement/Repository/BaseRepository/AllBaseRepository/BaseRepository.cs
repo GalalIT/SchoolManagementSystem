@@ -18,8 +18,9 @@ namespace Infrastructure.SchoolManagement.Repository.BaseRepository.AllBaseRepos
         {
             this.context = context;
         }
-
         public DbSet<T> Db => context.Set<T>();
+        public async Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate)
+        => await Db.AnyAsync(predicate);
         public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
         {
             return await Db.AnyAsync(predicate);

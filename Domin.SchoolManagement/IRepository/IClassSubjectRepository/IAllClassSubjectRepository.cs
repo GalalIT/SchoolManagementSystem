@@ -10,5 +10,7 @@ namespace Domin.SchoolManagement.IRepository.IClassSubjectRepository
 {
     public interface IAllClassSubjectRepository: IAllBaseRepository<ClassSubject>
     {
+        Task<List<ClassSubject>> GetAllWithIncludesAsync();
+        Task<ClassSubject?> GetByIdWithIncludesAsync(int id);
     }
 }

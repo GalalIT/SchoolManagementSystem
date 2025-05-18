@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.SchoolManagement.Migrations
 {
     /// <inheritdoc />
-    public partial class first : Migration
+    public partial class firstMig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -200,6 +200,7 @@ namespace Infrastructure.SchoolManagement.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ClassId = table.Column<int>(type: "int", nullable: true),
                     EnrollmentNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     EnrollmentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -229,6 +230,7 @@ namespace Infrastructure.SchoolManagement.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Specialization = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     HireDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },

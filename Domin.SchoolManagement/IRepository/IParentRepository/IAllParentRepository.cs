@@ -10,5 +10,7 @@ namespace Domin.SchoolManagement.IRepository.IParentRepository
 {
     public interface IAllParentRepository: IAllBaseRepository<Parent>
     {
+        Task<IEnumerable<Parent>> GetAllWithIncludesAsync(params string[] includes);
+        Task<Parent?> GetByIdWithIncludesAsync(int id, params string[] includes);
     }
 }

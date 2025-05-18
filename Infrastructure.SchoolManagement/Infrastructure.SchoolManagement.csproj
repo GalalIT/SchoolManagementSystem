@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application.SchoolManagement\Application.SchoolManagement.csproj" />
     <ProjectReference Include="..\Domin.SchoolManagement\Domin.SchoolManagement.csproj" />
   </ItemGroup>
 

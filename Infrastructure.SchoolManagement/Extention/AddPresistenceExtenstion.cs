@@ -1,5 +1,23 @@
-﻿using Domin.SchoolManagement.Entities;
+﻿using Application.SchoolManagement.Interface.IAttendanceOperation;
+using Application.SchoolManagement.Interface.IClassOperation;
+using Application.SchoolManagement.Interface.IClassSubjectOperation;
+using Application.SchoolManagement.Interface.IGradeOperation;
+using Application.SchoolManagement.Interface.IParentOperation;
+using Application.SchoolManagement.Interface.IStudentOperation;
+using Application.SchoolManagement.Interface.ISubjectOperation;
+using Application.SchoolManagement.Interface.IUserOperation;
+using Application.SchoolManagement.Services.AttendanceServices;
+using Application.SchoolManagement.Services.ClassServices;
+using Application.SchoolManagement.Services.ClassSubjectServices;
+using Application.SchoolManagement.Services.GradeServices;
+using Application.SchoolManagement.Services.ParentServices;
+using Application.SchoolManagement.Services.StudentServices;
+using Application.SchoolManagement.Services.SubjectServices;
+using Application.SchoolManagement.Services.UserServices;
+using Domin.SchoolManagement.Entities;
+using Domin.SchoolManagement.IRepository.IUnitOfRepository;
 using Infrastructure.SchoolManagement.Data;
+using Infrastructure.SchoolManagement.Repository.UnitOfRepository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -45,70 +63,25 @@ namespace Infrastructure.SchoolManagement.Extention
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 
-            //services.AddRateLimiter(options =>
-            //{
-            //    options.AddFixedWindowLimiter("LoginLimit", opt =>
-            //    {
-            //        opt.PermitLimit = 2; // 5 محاولات تسجيل دخول فقط
-            //        opt.Window = TimeSpan.FromMinutes(2); // كل 5 دقائق
-            //        opt.QueueLimit = 0; // لا نسمح بأي طلبات في قائمة الانتظار
-            //    });
-
-            //    options.OnRejected = (context, _) =>
-            //    {
-            //        Console.WriteLine($"Rate limit exceeded for IP: {context.HttpContext.Connection.RemoteIpAddress}");
-            //        context.HttpContext.Response.StatusCode = 429;
-            //        context.HttpContext.Response.WriteAsync("Too many login attempts. Please try again later.");
-            //        return new ValueTask();
-            //    };
-            //});
-            //services.AddRateLimiter(options =>
-            //{
-            //    options.AddFixedWindowLimiter("LoginLimit", opt =>
-            //    {
-            //        opt.PermitLimit = 2;
-            //        opt.Window = TimeSpan.FromMinutes(2);
-            //        opt.QueueLimit = 0;
-            //    });
-
-            //    options.OnRejected = async (context, cancellationToken) =>
-            //    {
-            //        context.HttpContext.Response.StatusCode = StatusCodes.Status429TooManyRequests;
-            //        await context.HttpContext.Response.WriteAsync(
-            //            "Too many login attempts. Please try again later.",
-            //            cancellationToken);
-            //    };
-            //});
-            //services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-            //////////////////////////////////////////Difine the UseCase ////////////////////
-
-
-            //services.AddScoped<IBranchUseCase, BranchUseCase>();
-            //services.AddScoped<ICompanyUseCase, CompanyUseCase>();
-            //services.AddScoped<IProductUseCase, ProductUseCase>();
-            //services.AddScoped<IUnitUseCase, UnitUseCase>();
-            //services.AddScoped<IDepartmentUseCase, DepartmentUseCase>();
-            //services.AddScoped<IOrderUseCase, OrderUseCase>();
-            //services.AddScoped<IUserUseCases, UserUseCases>();
-
+           
             //////////////////////////////////////////Difine the Services ////////////////////
 
-            //services.AddScoped<IAllBranchOperation, AllBranchServices>();
-            //services.AddScoped<IAllCompanyOperation, AllCompanyServices>();
-            //services.AddScoped<IAllDepartmentOperation, AllDepartmentServices>();
-            //services.AddScoped<IAllOrderDetailsOperation, AllOrderDetailsServices>();
-            //services.AddScoped<IAllOrderOperation, AllOrderServices>();
-            //services.AddScoped<IAllProductOperation, AllProductServices>();
-            //services.AddScoped<IAllUnitOperation, AllUnitServices>();
+            services.AddScoped< IAllAttendanceOperation, AllAttendanceServices>();
+            services.AddScoped<IAllClassOperation, AllClassServices>();
+            services.AddScoped<IAllClassSubjectOperation, AllClassSubjectServices>();
+            services.AddScoped< IAllGradeOperation, AllGradeServices>();
+            services.AddScoped<IAllParentOperation, AllParentServices>();
+            services.AddScoped<IAllStudentOperation, AllStudentServices>();
+            services.AddScoped<IAllSubjectOperation, AllSubjectServices>();
             //services.AddScoped<IAllProduct_UnitOperation, AllProduct_UnitServices>();
             //services.AddScoped<IAllUserOperation, AllUserServices>();
-            //services.AddScoped<ITokenGenerationOperation, JwtTokenService>();
-            //services.AddScoped<IAllUserOperation, AllUserService>();
+            services.AddScoped<ITokenGenerationOperation, JwtTokenService>();
+            services.AddScoped<IAllUserOperation, AllUserServices>();
 
             //////////////////////////////////////////Difine the Repository ////////////////////
             ///
 
-            //services.AddScoped<IUnitOfRepository, UnitOfRepository>();
+            services.AddScoped<IUnitOfRepository, UnitOfRepository>();
 
             ///
             /////////////////////////////////////////////////////////////////////////////////////

@@ -243,9 +243,7 @@ namespace Application.SchoolManagement.Services.UserServices
             if (string.IsNullOrEmpty(dto.Password))
                 return (false, "Password is required");
 
-            if (dto.Branch_Id == null)
-                return (false, "Branch_Id is required");
-
+            
             return (true, null);
         }
         private async Task<(bool IsSuccess, string ErrorMessage)> CheckExistingUser(string email)

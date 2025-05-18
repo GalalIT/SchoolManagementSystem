@@ -14,9 +14,12 @@ namespace Domin.SchoolManagement.Entities
         [Display(Name = "معرف المعلم | Teacher ID")]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "معرف المستخدم مطلوب | User ID is required")]
+        [Required(ErrorMessage = "اسم المستخدم مطلوب | User Name is required")]
         [Display(Name = "معرف المستخدم | User ID")]
         public string UserId { get; set; } = string.Empty;
+        [Required(ErrorMessage = "اسم المستخدم مطلوب | User Name is required")]
+        [Display(Name = "اسم المستخدم | User Name")]
+        public string Name { get; set; } = string.Empty;
 
         [StringLength(100, ErrorMessage = "يجب ألا تتجاوز التخصص 100 حرف | Specialization must not exceed 100 characters")]
         [Display(Name = "التخصص | Specialization")]

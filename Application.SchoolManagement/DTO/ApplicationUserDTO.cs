@@ -39,12 +39,7 @@ namespace Application.SchoolManagement.DTO
         [Display(Name = "كلمة المرور", Description = "Password")]
         public string Password { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "معرف الفرع مطلوب | Branch ID is required")]
-        [Range(1, int.MaxValue, ErrorMessage = "معرف الفرع غير صالح | Invalid branch ID")]
-        [Display(Name = "الفرع", Description = "Branch")]
-        public int Branch_Id { get; set; }
-
-
+        
         public List<string>? Roles { get; set; }
     }
     public class UpdateUserDto
@@ -120,15 +115,9 @@ namespace Application.SchoolManagement.DTO
         public bool PhonNumberConfirm { get; set; }
         public int AccessFailedCount { get; set; }
         public string[]? Roles { get; set; }
-        public int Branch_Id { get; set; }
-        public BranchUserDto? Branch { get; set; }
     }
 
-    public class BranchUserDto
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-    }
+    
     public class LoginDto
     {
         [Required(ErrorMessage = "اسم المستخدم أو البريد الإلكتروني مطلوب | Username or email is required")]
@@ -156,7 +145,6 @@ namespace Application.SchoolManagement.DTO
         public string Name { get; set; }
         public string Email { get; set; }
         public string[] Roles { get; set; }
-        public BranchUserDto Branch { get; set; }
     }
     public class ConfirmEmailRequestDto
     {
